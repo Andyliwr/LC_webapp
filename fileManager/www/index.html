@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/font-icons.css">
+		<link rel="stylesheet" href="css/iuapmobile.um-2.7.0.css">
+<link rel="stylesheet" type="text/css" href="css/iuapmobile.um.listview-2.7.0.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+<style>
+	.msg-info {
+		position: relative;
+	}
+	.msg-info .um-badge {
+		position: absolute;
+		right: -10px;
+		font-size: 12px;
+	}
+	.msg-header {
+		width: 40px;
+		height: 40px;
+		line-height: 40px;
+		background: blue;
+		border-radius: 50%;
+		text-align: center;
+		color: white;
+	}
+</style>
+		<script src="js/Frameworks/iuapmobile.frameworks.core-2.7.0.js" ></script>	
+		<script src="js/jquery-2.1.4.min.js" ></script>
+		<script src="js/Frameworks/iuapmobile.frameworks.ui-2.7.0.js" ></script>
+
+		<script>
+			function $pageReady() {
+				/*这里编写与原生服务相关的代码逻辑，例如对原生设备服务的调用，对网络服务的调用等*/
+				//alert("Mobile Native Ready");
+			}
+
+			$(function() {
+
+			});
+		</script>
+
+<script type="text/javascript" src="js/knockout-2.2.0.js"></script>
+<script type="text/javascript" src="js/Frameworks/iuapmobile.frameworks.listview-2.7.0.js"></script>
+		<script type="text/javascript" src="cordova.js"></script>
+		<script type="text/javascript" src="js/index.js"></script>
+	</head>
+	<body>
+		<div class="um-page" id="index">
+			<div class="um-header">
+				<h3>小迪文件管理器</h3>
+				<a href="#" class="um-header-right"></a>
+			</div>
+			
+			
+			<div class="um-content">
+			<!--增加搜索框-->
+			<div class="um-input-search">
+				<input type="search" class="form-control" placeholder="search">
+				<span class="um-input-cancle">取消</span>
+			</div>
+			<!--增加路径行-->
+			
+			<!--增加列表-->
+			<div class="um-listview-wrap" id="listview">
+				<ul class="um-list um-no-active" data-bind="foreach: data">
+					<li class="um-listview-row">
+						<a href="#" class="um-list-item um-swipe-action um-no-icon">
+							<div class="um-swipe-btns">
+								<span class="um-swipe-btn um-delete">删除</span>
+							</div>
+							<div class="um-list-item-media msg-info">
+								<span data-bind="attr:{'class': fontName}" style="font-size: 2rem"></span>
+							</div>
+							<div class="um-list-item-inner">
+								<div class="um-list-item-body">
+									<h4 class="um-media-heading fb f16 um-text-overflow" data-bind="text:sender"></h4>
+									<p class="um-gray f14 um-text-overflow" data-bind="text:lastMsg"></p>
+								</div>
+								<div class="pr10">
+									<span class="icon-arrow-right2"></span>
+								</div>
+							</div> 
+						</a>
+					</li>
+				</ul>
+			</div>
+			</div>
+			
+		
+		
+		<div class="um-footer">
+		    <div class="um-footerbar pt5">
+		        <a href="#" class="um-footerbar-item active">
+					<span class="icon-folder-plus"></span>
+		        </a>
+		        <a href="#" class="um-footerbar-item active">
+					<span class="icon-scissors"></span>
+		        </a>
+		        <a href="#" class="um-footerbar-item active">
+					<span class="icon-bin"></span>
+		        </a>
+		        <a href="#" class="um-footerbar-item active">
+					<span class="icon-copy"></span>
+		        </a>
+		        <a href="#" class="um-footerbar-item active">
+					<span class="icon-move-down"></span>
+		        </a>
+		    </div>
+		</div>
+					</div>
+
+<script>
+			$(function() {
+				//构造控件实例
+				var listview = UM.listview("#listview");
+
+				//Knockout绑定
+				var ViewModel = function() {
+
+				};
+
+				var jsonArray = [{
+					"sender" : "FileManager",
+					"fontName" : "icon-folder-open",
+					"lastMsg" : "5项 | 2016-4-5 下午4:30",
+				}, {
+					"sender" : "Hello",
+					"fontName" : "icon-folder-open",
+					"lastMsg" : "5项 | 2016-4-3 下午4:30",
+				}, {
+					"sender" : ".gitignore",
+					"fontName" : "icon-file-text2",
+					"lastMsg" : "5项 | 2016-4-3 下午4:50",
+				}]
+
+				var viewModel = new ViewModel();
+				viewModel.data = ko.observableArray(jsonArray);
+				ko.applyBindings(viewModel);
+
+				//添加控件方法
+				listview.on("pullDown", function(sender) {
+					//这是可以编写列表下拉加载逻辑，参数sender即为当前列表实例对象
+					/*var row = {
+						"sender" : "集团技术部",
+						"img" : "img/org4.png",
+						"msgNum" : 2,
+						"lastMsg" : "各位同仁，2015年4季度油料报销标准5.85元/升。",
+						"lastTime" : "16:22",
+					};
+					viewModel.data.unshift(row);*/
+					sender.refresh();
+				});
+				listview.on("pullUp", function(sender) {
+					//这是可以编写列表上拉刷新逻辑，参数sender即为当前列表实例对象
+					/*var row = {
+						"sender" : "集团咨询部",
+						"img" : "img/org5.png",
+						"msgNum" : 6,
+						"lastMsg" : "各位同仁，2015年4季度油料报销标准5.85元/升。",
+						"lastTime" : "12月22日"
+					};
+					viewModel.data.push(row);*/
+					sender.refresh();
+				});
+				listview.on("itemClick", function(sender, args) {
+					//这里可以处理行点击事件，参数sender即为当前列表实例对象，args对象有2个属性，即rowIndex(行索引)和$target(目标行的jquery对象)
+					alert("您点击了列表第" + (args.rowIndex + 1) + "行！");
+
+				});
+				listview.on("itemDelete", function(sender, args) {
+					//这是可以编写行删除逻辑，参数sender即为当前列表实例对象，args对象有2个属性，即rowIndex(行索引)和$target(目标行的jquery对象)
+					var item = viewModel.data()[args.rowIndex];
+					alert("您点击了删除按钮!这一行的数据是" + JSON.stringify(item));
+					/* args.$target.slideUp(500, function() {
+					 viewModel.data.remove(item);
+					 }); */
+				});
+				listview.on("itemSwipeLeft", function(sender, args) {
+					//这里可以处理行左滑事件，参数sender即为当前列表实例对象，args对象有2个属性，即rowIndex(行索引)和$target(目标行的jquery对象)
+					/*sender.showItemMenu(args.$target);*/
+
+				});
+				listview.on("tapHold", function() {
+					//这里可以处理长按事件
+					/*console.log("您长按了列表！");*/
+				});
+			});
+
+
+		</script>
+	</body>
+</html>

@@ -1,0 +1,80 @@
+@font-face {
+    font-family: 'icomoon';
+    src:    url('fonts/icomoon.eot?o8r0ky');
+    src:    url('fonts/icomoon.eot?o8r0ky#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?o8r0ky') format('truetype'),
+    url('fonts/icomoon.woff?o8r0ky') format('woff'),
+    url('fonts/icomoon.svg?o8r0ky#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-file-text2:before {
+    content: "\e900";
+}
+.icon-copy:before {
+    content: "\e903";
+}
+.icon-envelop:before {
+    content: "\e904";
+}
+.icon-folder-open:before {
+    content: "\e901";
+}
+.icon-folder-plus:before {
+    content: "\e908";
+}
+.icon-bin:before {
+    content: "\e905";
+}
+.icon-arrow-right2:before {
+    content: "\e902";
+}
+.icon-move-down:before {
+    content: "\e906";
+}
+.icon-checkbox-checked:before {
+    content: "\e909";
+}
+.icon-scissors:before {
+    content: "\e907";
+}
+
+
+
+
+
+
+
+.um-page .um-header{
+    background-color: #5bc0de;
+}
+.um-page .um-header .ti-menu{
+    color: #FFFFFF;
+    text-align: left;
+}
+.um-page .um-header h3{
+    background-color: #5bc0de;
+    text-align: left;
+    padding-left: .8rem;
+    color: #FFFFFF;
+}
+
+.um-page .um-content .um-input-search .form-control {
+    background-color: rgba(244, 232, 255, 0.98);
+}

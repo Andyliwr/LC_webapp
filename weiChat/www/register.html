@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/iuapmobile.um-2.7.0.css">
+		<link rel="stylesheet" href="css/font-icons.css">
+		<link rel="stylesheet" type="text/css" href="css/register.css">
+		<script src="js/Frameworks/iuapmobile.frameworks.core-2.7.0.js" ></script>
+		<script src="js/jquery-2.1.4.min.js" ></script>
+		<script src="js/Frameworks/iuapmobile.frameworks.ui-2.7.0.js" ></script>
+		<script>
+			$isWeb = true
+		</script>
+		<script>
+			function $pageReady() {
+				alert("webview ready");
+			}
+
+			$(function() {
+
+			});
+		</script>
+	</head>
+	<body>
+		<div class="um-page" id="index">
+			<div class="um-header" >
+				<a href="#"  class="um-back"></a>
+				<h3>填写手机号码</h3>
+			</div>
+
+			<div class="um-content">
+
+				<form>
+					<ul>
+						<li>
+							<div>
+								<lable>昵称</lable>
+								<input type="text" id="username" value="" name="username"/>
+								
+								<hr>
+							</div>
+						</li>
+					</ul>
+
+					<button class="btn um-btn-danger">
+						注册
+					</button>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>
